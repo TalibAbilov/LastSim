@@ -1,0 +1,27 @@
+﻿@model UpdateAgentVm
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="FullName">FullName</label>
+            <input asp-for="FullName" class="form-control" placeholder="Enter fullname">
+            <span asp-validation-for="FullName" style="color:red"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="file">Image Select</label>
+            <input asp-for="file" class="form-control-file">
+            <span asp-validation-for="file" style="color:red"></span>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Example select</label>
+            <select class="form-control" asp-for="DesignationId">
+                @foreach (Designation item in ViewBag.Designations)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+            <span asp-validation-for="DesignationId" style="color:red"></span>
+
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
